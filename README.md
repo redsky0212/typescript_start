@@ -7,7 +7,7 @@
 
 ## TypeScript 사용하기
 * 타입주석(type annotations) 사용하기
-  - 인자값에 type을 정할 수 있다. ( 안자 : string )
+  - 인자값에 type을 정할 수 있다. ( 인자 : string )
   - 함수나 변수에 사용할때는 type을 정할 수 있다.
   - interface 를 통하여 객체에 세부 타입을 지정할 수 있다.
 * class를 생성자와 함께 생성하기
