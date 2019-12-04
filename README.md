@@ -16,5 +16,5 @@
   - Boolean : let isDone: boolean = false;
   - Number : let decimal = 6;
   - String : let color: string = 'blue';
-  - Array : let list: number[] = [1,2,3]; or let list: Array<number> = [1,2,3];
+  - Array : let list: number[] = [1,2,3]; or let list: Array&lt;number&gt; = [1,2,3];
   - Tuple : let x: [string, number];
