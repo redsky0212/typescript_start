@@ -90,5 +90,6 @@ handler(){
 
 ## @Model 사용하기
 * v-model 과는 다른기능
-* 
+* 부모로부터 넘겨받은 prop이벤트를 type을 정하고 원하는 함수에 바인딩하는것
+  - ex) @Model('change', { type: Boolean }) readonly checked!: boolean
 
