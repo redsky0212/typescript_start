@@ -60,4 +60,12 @@ export default class Message extends Vue {
 ## @Prop 으로 데이터 전달하기
 * children.vue 파일을 생성해서 props로 parentMessage를 받는 컴포넌트를 class로 만든다.
   - 반드시 @Component @Prop 을 잘 확인해야한다.
+  - @Prop() parentMessage?: string; 이런식으로 사용한다. (vue-property-decorator 를 import하여 사용)
+  - 아래와 같이 props validation을 줄 수도있다.
+  - @Prop(String) private msg!: string;
+  - @Prop([String, Number]) private msg!: string;
+  - @Prop({ default: 'hi' }) private msg!: string;
+
+## @Watch로 데이터 변화 감지
+* 
 
