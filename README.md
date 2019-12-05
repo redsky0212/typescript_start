@@ -1,6 +1,7 @@
 # TypeScript 처음 시작하기
 ## 유투브 강좌
 * https://www.youtube.com/watch?v=PFBRhxjIBUM&list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0
+* 인프런 강좌 : https://www.inflearn.com/course/Typescript_Vue/lecture/21109
 
 ## TypeScript 설정
 * Nodejs 설치
