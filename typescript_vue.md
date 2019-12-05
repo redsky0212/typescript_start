@@ -37,6 +37,7 @@
 ## ES6 - class 참조
 * class, private(#), set, get, static, extends, super, 
 
+## https://github.com/kaorun343/vue-property-decorator
 ## @Component로 class 컴포넌트 생성 예제
 * 새로운 파일 message.vue파일을 생성하고 코딩
 ```
@@ -66,6 +67,28 @@ export default class Message extends Vue {
   - @Prop([String, Number]) private msg!: string;
   - @Prop({ default: 'hi' }) private msg!: string;
 
-## @Watch로 데이터 변화 감지
+## @Watch로 데이터 변화 감지 (메소드 데코레이터)
+* (vue-property-decorator 를 import하여 사용) Watch.
+* @Watch('바뀔값') 이와같이 사용
+  - 인자로는 감시할 변수를 넣어준다.
+  - 실행할 함수를 바로 아래쪽에 넣어주고 안쪽에 원하는 코딩을 진행한다.
+
+## @Emit 으로 이벤트 전달하기 (메소드 데코레이터)
+* @Emit(event?: string) decorator
+* 부모컴포넌트에서 넘겨준 이벤트핸들러가 있고 자식 컴포넌트에서는 @Emit() 으로 넘겨받은 핸들러를 사용할 수 있다.
+  - 부모로부터 넘겨받은 핸들러명이 같다면 @Emit() 인자를 넣을 필요가 없고 그냥 같은 이름으로 사용한다.
+```
+@Emit()
+handler(){
+  // ... 
+}
+```
+
+## @Provide/@inject 로 데이터 전달하기 일반적으로는 사용하지 않는게 좋음.
+* https://kr.vuejs.org/v2/api/index.html#provide-inject
+* 부모자식간에 props로 데이터를 넘겨줘서 받아서 처리를 했는데 provide/inject를 사용하면 props를 넘겨주지 않고 바로 inject로 사용할 수 있다.
+
+## @Model 사용하기
+* v-model 과는 다른기능
 * 
 
