@@ -15,10 +15,55 @@
 ## TypeScript 사용하기
 * 타입주석(type annotations) 사용하기
   - 인자값에 type을 정할 수 있다. ( 인자 : string )
-  - 함수나 변수에 사용할때는 type을 정할 수 있다.
+```
+function greeter(person: string) {
+    return "Hello, " + person;
+}
+
+let user = "Jane User";
+
+document.body.textContent = greeter(user);
+```
   - interface 를 통하여 객체에 세부 타입을 지정할 수 있다.
+```
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = { firstName: "Jane", lastName: "User" };
+
+document.body.textContent = greeter(user);
+```
 * class를 생성자와 함께 생성하기
-  - 인자값에 public사용은 class의 프로퍼티로 자동적으로 만들어 준다.
+  - class내부 생성자에서 인자값에 public사용하면 해당class의 속성으로 자동으로 만들어준다.
+    - 그러면 추 후 ( class인스턴스.속성 ) 이런식으로 사용할 수 있다.
+    - class속성에는 있으나 interface에 정의된 type에 없으면 에러난다.
+```
+class Student {
+    fullName: string;
+    constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+}
+
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function greeter(person: Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = new Student("Jane", "M.", "User");
+
+document.body.textContent = greeter(user);
+```
 * 기본 Type의 종류
   - Boolean : let isDone: boolean = false;
   - Number : let decimal = 6;

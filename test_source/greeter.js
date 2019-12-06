@@ -10,7 +10,7 @@ var Student = /** @class */ (function () {
     return Student;
 }());
 function greeter(person) {
-    return "Hello, " + person.firstname + " " + person.lastname;
+    return "Hello, " + person.firstname + " " + person.middleinitial + "" + person.lastname;
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
