@@ -10,7 +10,7 @@
 * tsc 명령어로 compile
   - 프로젝트 폴더에 greeter.ts파일을 만든다.
   - 간단한 TypeScript코딩을 하고 tsc greeter.ts 명령어 실행하면 greeter.js 파일이 생성됨.
-  - 프로젝트 폴더에 index.html 파일을 만들고 해당
+  - 프로젝트 폴더에 index.html 파일을 만들고 컴파일결과 js파일을 로딩해서 확인한다.
 
 ## TypeScript 사용하기
 * 타입주석(type annotations) 사용하기
