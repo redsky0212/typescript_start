@@ -1,10 +1,11 @@
 # TypeScript 처음 시작하기
-## 유투브 강좌
-* https://www.youtube.com/watch?v=PFBRhxjIBUM&list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0
+## 참고문서
+* 공식문서 : https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+* 유투브강좌 : https://www.youtube.com/watch?v=PFBRhxjIBUM&list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0
 
-## TypeScript 설정
+## TypeScript 초기설정
 * Nodejs 설치
-* VSCode설치
+* VSCode설치(Editor)
 * npm i -g typescript : 글로벌로 typescript를 설치
 * tsc greeter.ts 명령어 실행하면 greeter.js 파일이 생성됨.
 

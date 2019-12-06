@@ -5,6 +5,8 @@ var Student = /** @class */ (function () {
         this.lastname = lastname;
         this.fullname = firstname + " " + middleinitial + " " + lastname;
     }
+    Student.prototype.inner = function () {
+    };
     return Student;
 }());
 function greeter(person) {
