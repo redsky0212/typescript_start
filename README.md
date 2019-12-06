@@ -92,5 +92,12 @@ let list: number[] = [1, 2, 3];
 // 두번째는 일반적인 배열 유형 Array<elemType> 사용.
 let list: Array<number> = [1, 2, 3];
 ```
-
-  - Tuple : let x: [string, number];
+* Tuple 타입 : 배열 요소의 각각의 타입을 지정할 수 있다.
+```
+// tuple 형식 선언
+let x: [string, number];
+// 초기화
+x = ["hello", 10]; // OK
+// 잘못된 초기화
+x = [10, "hello"]; // Error
+```
