@@ -69,8 +69,28 @@ document.body.textContent = greeter(user);
 * Boolean : true | false 값을 가질 수 있는 유형.
   - Boolean : let isDone: boolean = false;
 * Number : 부동 소수점, 16진수, 10진수, 2진수, 8진수.
-  - Number : let decimal = 6;
-* String : 
-  - String : let color: string = 'blue';
-  - Array : let list: number[] = [1,2,3]; or let list: Array&lt;number&gt; = [1,2,3];
+```
+let decimal: number = 6;
+let hex: number = 0xf00d;
+let binary: number = 0b1010;
+let octal: number = 0o744;
+```
+* String : 따옴표로 묶어서 사용되고, 템플릿문자열을 백따옴표(`)를 사용할 수도 있다.
+```
+let color: string = "blue";
+color = 'red';
+
+let fullName: string = `Bob Bobbington`;
+let age: number = 37;
+let sentence: string = `Hello, my name is ${ fullName }. I'll be ${ age + 1 } years old next month.`;
+```
+* Array : 배열타입
+  - 두가지 방법으로 사용할 수 있다.
+```
+// 첫번째는 타입지정함과 동시에 뒤에 [] 를 붙이는 방식.
+let list: number[] = [1, 2, 3];
+// 두번째는 일반적인 배열 유형 Array<elemType> 사용.
+let list: Array<number> = [1, 2, 3];
+```
+
   - Tuple : let x: [string, number];
