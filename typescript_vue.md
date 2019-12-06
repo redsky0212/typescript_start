@@ -1,4 +1,4 @@
-#
+# 인프런 Vue-TypeScript : https://www.inflearn.com/course/Typescript_Vue/lecture/21109
 ## TypeScript 를 Vue Component에 적용하는 두가지 방법
 * Vue.extend 를 이용하여 객체로 만드는 방법.(결론: TypeScript와 좋은 조합이 아니다.)
 * Class로 만드는 방법.
