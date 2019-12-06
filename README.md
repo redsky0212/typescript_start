@@ -70,6 +70,7 @@ document.body.textContent = greeter(user);
   - Boolean : let isDone: boolean = false;
 * Number : 부동 소수점, 16진수, 10진수, 2진수, 8진수.
   - Number : let decimal = 6;
+* String : 
   - String : let color: string = 'blue';
   - Array : let list: number[] = [1,2,3]; or let list: Array&lt;number&gt; = [1,2,3];
   - Tuple : let x: [string, number];
