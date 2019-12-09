@@ -316,5 +316,28 @@ function f({ a, b }: C): void {
   clone.m(); // error!
   ```
 
+## Interface 관련.
+* 일반적인 TypeScript 코딩방법 과 Interface를 이용한 코딩방법 예제.
+```
+// 일반적인 방법
+function printLabel(labeledObj: { label: string }) {
+    console.log(labeledObj.label);
+}
+
+let myObj = {size: 10, label: "Size 10 Object"};
+printLabel(myObj);
+
+// Interface로 코딩한 방법
+interface LabeledValue {
+    label: string;
+}
+
+function printLabel(labeledObj: LabeledValue) {
+    console.log(labeledObj.label);
+}
+
+let myObj = {size: 10, label: "Size 10 Object"};
+printLabel(myObj);
+```
 
 
