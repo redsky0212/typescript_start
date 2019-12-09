@@ -452,8 +452,29 @@ printLabel(myObj);
     return result > -1;
   }
   ```
-  * Indexable 타입
-    - 
+* Indexable 타입(아직 이해 안됨)
+  - **number, string** 두가지 타입만 가능.
+  - aaa[0] : 숫자형인덱싱, aaa['test'] : 문자형 인덱싱.
+
+* Class 타입
+  - Interface 구현
+  - 구현된 currentTime의 Date타입을 사용.
+  - setTime과 같이 메서드도 명시할 수 있음.
+  ```
+  interface ClockInterface {
+    currentTime: Date;
+    setTime(d: Date): void;
+  }
+
+  class Clock implements ClockInterface {
+    currentTime: Date = new Date();
+    setTime(d: Date) {
+        this.currentTime = d;
+    }
+    constructor(h: number, m: number) { }
+  }
+  ```
+
 
 
 

@@ -23,17 +23,3 @@ var user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user); 
 
-interface SearchFunc {
-  (source: string, subString: string): boolean;
-}
-
-let result : SearchFunc;
-
-result = function(aa, bb){
-  let _a = aa.search(aa);
-  return _a > -1;
-}
-
-let source = 'a';
-let subString = 'b';
-result(source, subString);
