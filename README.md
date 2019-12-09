@@ -230,12 +230,16 @@ create(undefined); // Error
 
   // 배열의 원하는 인덱스 위치의 값을 가져오고 싶을때.
   let [,,bbb,ccc] = [11,22,33,44];
-
+  ```
+* Tuple 분해 할당
+  ```
   // Tuple타입의 배열 요소
   let tuple: [number, string, boolean] = [7, "hello", true];
   let [a, b, c] = tuple; // a: number, b: string, c: boolean
+
   // 정해진 Tuple타입의 요소를 벗어날 경우에는 에러가 발생된다.
   let [a, b, c, d] = tuple; // d 에러발생.
+  
   // '...'연산자를 이용한 Tuple타입 사용예제
   let [a, ...bc] = tuple; // bc: [string, boolean]
   let [a, b, c, ...d] = tuple; // d: [], the empty tuple
