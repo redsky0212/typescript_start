@@ -190,4 +190,12 @@ create(undefined); // Error
 * Type assertions : 형변환이 아님. 컴파일러에게 "나는 이런타입이다" 라고 명시해주는것.
   - 명시해주는 방법은 두가지가 있다.
     - 첫번째 : 변수 as 타입
+    ```
+    let someValue: any = "this is a string";
+    let strLength: number = (someValue as string).length;
+    ```
     - 두번째 : <타입>변수
+    ```
+    let someValue: any = "this is a string";
+    let strLength: number = (<string>someValue).length;
+    ```
