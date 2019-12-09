@@ -207,9 +207,10 @@ create(undefined); // Error
 * let와 const의 차이.
   - 수정하기 위한 변수 외에는 모두 const를 사용.
 * 배열 분해 할당
-  - 우선 가장 심플한 배열 분해 할당
+  - 우선 가장 심플한 배열 분해 할당(first, second라는 변수로 배영을 분해하여 할당했다.)
   ```
   let input = [1,2];
+  // first = input[0]; 이런 형식과 같은 코드 이지만 아래 코드가 훨씬 편리함.
   let [first, second] = input;
   ```
 
