@@ -360,30 +360,69 @@ printLabel(myObj);
 
   let mySquare = createSquare({color: "black"});
   ```
-  * Readonly properties
-    - 처음 생성할때 값 할당하고 이후에는 값을 수정할 수 없게 처리하기 위하여 readonly를 **속성 이름 앞에** 적어 줍니다.
+* Readonly properties
+  - 처음 생성할때 값 할당하고 이후에는 값을 수정할 수 없게 처리하기 위하여 readonly를 **속성 이름 앞에** 적어 줍니다.
+  ```
+  interface Point {
+      readonly x: number;
+      readonly y: number;
+  }
+  // interface를 선언하고 값을 할당 하려고 하면 에러가 발생한다.
+  let p1: Point = { x: 10, y: 20 };
+  p1.x = 5; // error!
+  ```
+  - **ReadonlyArray<타입>**
+    - 미리지정된 배열을 새로운 변수에 할당할때 변경이 이루어지지 않게 지정하는 방법.
     ```
-    interface Point {
-        readonly x: number;
-        readonly y: number;
-    }
-    // interface를 선언하고 값을 할당 하려고 하면 에러가 발생한다.
-    let p1: Point = { x: 10, y: 20 };
-    p1.x = 5; // error!
+    let a: number[] = [1, 2, 3, 4];
+    let ro: ReadonlyArray<number> = a;
+    ro[0] = 12; // error!
+    ro.push(5); // error!
+    ro.length = 100; // error!
+    a = ro; // error!
     ```
-    - **ReadonlyArray<타입>**
-      - 미리지정된 배열을 새로운 변수에 할당할때 변경이 이루어지지 않게 지정하는 방법.
-      ```
-      let a: number[] = [1, 2, 3, 4];
-      let ro: ReadonlyArray<number> = a;
-      ro[0] = 12; // error!
-      ro.push(5); // error!
-      ro.length = 100; // error!
-      a = ro; // error!
-      ```
-      - ReadonlyArray를 이용하여 수정할 수 없게 되었지만 새로운 변수에 Type assertion을 이용하여 새롭게 타입을 지정하여 사용할 수도 있다.
-      ```
-      let other = ro as number[];
-      ```
+    - ReadonlyArray를 이용하여 수정할 수 없게 되었지만 새로운 변수에 Type assertion을 이용하여 새롭게 타입을 지정하여 사용할 수도 있다.
+    ```
+    let other = ro as number[];
+    ```
+    - readonly, const (둘다 값변경 불가용으로 사용하므로)
+      - 변수는 const를 사용하고, 속성에는 readonly를 사용한다.
+
+* 추가 속성 체크 (Excess Property Checks)
+  - 일반적으로 아래 코드는 'colour'이 없다고 에러가 납니다.
+  ```
+  interface SquareConfig {
+      color?: string;
+      width?: number;
+  }
+
+  function createSquare(config: SquareConfig) {
+      // ...
+  }
+
+  let mySquare = createSquare({ colour: "red", width: 100 });
+  ```
+  - 하지만 color, width 외에 추가적인 속성이 더 있다고 가정하고 코드를 작성할때는 아래와 같이 할 수 있습니다.
+  ```
+  interface SquareConfig {
+      color?: string;
+      width?: number;
+      [propName:string] : any;  // 넘겨진 color, width이외의 속성을 가질 수 있게 처리.
+  }
+
+  function createSquare(config: SquareConfig) {
+      // ...
+  }
+
+  // type assertion(타입 설정)을 통하여 에러를 없앨 수 있다.
+  let mySquare = createSquare({ colour: "red", width: 100 } as SquareConfig);
+  ```
+  - **주의** 
+    - 아래와 같이 전혀 다른 속성 하나만 사용하는데에 위와같은 초과속성체크를 사용해서는 안됨.
+  ```
+  let squareOptions = { colour: "red" };
+  let mySquare = createSquare(squareOptions);
+  ```
+
 
 
