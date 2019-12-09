@@ -112,13 +112,52 @@ x[3] = 'world';
 console.log(x[5].toString());
 ```
 
-* Enum 타입 : 열거형(숫자값 집합), 열거형의 시작은 0 부터 시작한다.
+* Enum : 열거형(숫자값 집합), 열거형의 시작은 0 부터 시작한다.
   - 요소중 값을 수동으로 변경 가능 합니다.
+  - 요소의 숫자값으로 해당값에 맵핑된 이름을 가져올 수도 있습니다.
 ```
 enum Color {Red, Green, Blue};
 let c: Color = Color.Green;
 
 // Enum요소의 값 변경.
-enum test {a, b=3, c};
-let a: test = test.b;
+enum Test {a, b=3, c};
+let s: Test = Test.b;
+console.log(s);
+
+// Enum요소에 바인딩된 숫자값으로 해당요소 이름을 알 수 있습니다.
+enum Test2 {name1, name2, name3};
+let s2: string = Test2[1];
+console.log(s2);
 ```
+
+* Any : 모든유형.
+  - 일반 javascript와 같이 여러가지 유형을 사용할 수 있습니다.
+  - 배열에도 Any 유형을 가지는 배열타입을 지정할 수 있습니다.
+```
+let notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false; // okay, definitely a boolean
+
+let notSure: any = 4;
+notSure.ifItExists(); // okay, ifItExists might exist at runtime
+notSure.toFixed(); // okay, toFixed exists (but the compiler doesn't check)
+
+let prettySure: Object = 4;
+prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.
+
+// 여러가지 유형을 사용.
+let list: any[] = [1, true, 'free'];
+list[1] = 100;
+```
+
+* Void : void는 any와 반대. 어떤유형도 아닌것. 값을 반환하지 않는것.
+```
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+
+let unusable: void = undefined;
+unusable = null; // OK if `--strictNullChecks` is not given
+```
+
+* Null and Undefined : 

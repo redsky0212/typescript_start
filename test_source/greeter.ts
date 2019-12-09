@@ -30,6 +30,12 @@ console.log(c);
 
 enum test {a, b=3, c=2};
 let a: test = test.b;
-let c: string = test[2];
 console.log(a);
-console.log(c);
+
+enum Test2 {name1, name2, name3};
+let s2: string = Test2[1];
+console.log(s2);
+
+let list: any[] = [1, true, 'free'];
+list[1] = 100;
+console.log(list);

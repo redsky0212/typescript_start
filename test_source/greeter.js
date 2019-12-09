@@ -32,3 +32,15 @@ var test;
 ;
 var a = test.b;
 console.log(a);
+var Test2;
+(function (Test2) {
+    Test2[Test2["name1"] = 0] = "name1";
+    Test2[Test2["name2"] = 1] = "name2";
+    Test2[Test2["name3"] = 2] = "name3";
+})(Test2 || (Test2 = {}));
+;
+var s2 = Test2[1];
+console.log(s2);
+var list = [1, true, 'free'];
+list[1] = 100;
+console.log(list);
