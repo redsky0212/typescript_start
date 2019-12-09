@@ -203,5 +203,13 @@ create(undefined); // Error
 ## TypeScript에서 다양한 변수 선언방법
 * 변수 선언시 var와 let의 차이.
   - 가장 큰 차이는 Block-scoped.
+  - let은 선언하기 전에는 사용되어지면 안됨.
 * let와 const의 차이.
   - 수정하기 위한 변수 외에는 모두 const를 사용.
+* 배열 분해 할당
+  - 우선 가장 심플한 배열 분해 할당
+  ```
+  let input = [1,2];
+  let [first, second] = input;
+  ```
+
