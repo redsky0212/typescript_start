@@ -3,5 +3,15 @@
   <head><title>TypeScript Greeter</title></head>
   <body>
     <script src="greeter.js"></script>
+    <script>
+let oo = {
+  a: "foo",
+  b: 12,
+  c: "bar"
+};
+let { aa, ...passthrough1 } = oo;
+let total1 = passthrough1.b + passthrough1.c.length;
+console.log(total1);
+    </script>
   </body>
 </html>

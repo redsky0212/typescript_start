@@ -251,3 +251,37 @@ create(undefined); // Error
   let [,,bbb] = tuple;
   ```
 
+* Object 분해 할당
+```
+// 일반적인 객체 분해 할당.
+let o = {
+    a: "foo",
+    b: 12,
+    c: "bar"
+};
+let { a, b } = o;
+
+// 선언하지 않고 바로 할당한 값을 바로 분해가져오기
+let { a, b } = { a: "baz", b: 101 };
+
+// '...'연산자를 이용하여 나머지 값들을 모두 모아서 변수로 지정할 수 있습니다.
+let { a, ...passthrough } = o;
+let total = passthrough.b + passthrough.c.length;
+
+// 객체 안에서 구조분해 ':'뒤에는 새로운 이름을 할당하는것임.
+// 타입 지정하는것과 혼동하면 안됨.
+let { a: newName1, b: newName2 } = o;
+
+// 객체에 타입을 지정하고자 할때는 각각의 요소에 별도로 지정 해줘야 한다.
+let {a,b} : {a:string, b:number} = o;
+
+// 함수 파라미터에 기본값을 지정할 수 있다.
+function keepWholeObject(wholeObject: { a: string, b?: number }) {
+    let { a, b = 1001 } = wholeObject;
+}
+```
+
+* Function 분해 할당
+
+
+

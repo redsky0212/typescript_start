@@ -23,44 +23,14 @@ var user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user); 
 
-enum Color {Red, Green, Blue};
-let c: Color = Color.Green;
-
-console.log(c);
-
-enum test {a, b=3, c=2};
-let a: test = test.b;
-console.log(a);
-
-enum Test2 {name1, name2, name3};
-let s2: string = Test2[1];
-console.log(s2);
-
-let list: any[] = [1, true, 'free'];
-list[1] = 100;
-console.log(list);
+let o = {
+  a: "foo",
+  b: 12,
+  c: "bar"
+};
 
 
-
-function error(message: string): never {
-  throw new Error(message);
+function keepWholeObject(wholeObject: { a: string, b?: number }) {
+  let { a = 1, b = 1001 } = wholeObject;
+  return `${a}그리고${b}`;
 }
-
-// Inferred return type is never
-function fail() {
-  return error("Something failed");
-}
-//fail();
-function infiniteLoop(): never {
-  while (true) {
-  }
-}
-
-function f([first, second]  :[number, number]){
-  console.log(first);
-  console.log(second);
-}
-f([1,2]);
-
-let [,,bbb,ccc] = [11,22,33,44];
-console.log(bbb);
