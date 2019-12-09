@@ -14,7 +14,11 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
-function createSquare(config) {
-    alert(config.colour);
-}
-var mySquare = createSquare({ colour: "red", width: 100, aa: 20 });
+var result;
+result = function (aa, bb) {
+    var _a = aa.search(aa);
+    return _a > -1;
+};
+var source = 'a';
+var subString = 'b';
+result(source, subString);

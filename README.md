@@ -423,6 +423,38 @@ printLabel(myObj);
   let squareOptions = { colour: "red" };
   let mySquare = createSquare(squareOptions);
   ```
+* 함수 타입 지정
+  - 함수의 매개변수, 반환값의 타입을 interface로 지정할 수 있다.
+  ```
+  interface SearchFunc {
+    (source: string, subString: string): boolean;
+  }
+
+  let mySearch: SearchFunc;
+  mySearch = function(source: string, subString: string) {
+    let result = source.search(subString);
+    return result > -1;
+  }
+  ```
+  - 매개변수의 이름이 같지 않아도 된다.
+  ```
+  let mySearch: SearchFunc;
+  mySearch = function(src: string, sub: string): boolean {
+    let result = src.search(sub);
+    return result > -1;
+  }
+  ```
+  - interface에 지정된 타입이 설정 되었다면 함수에서 타입을 지정하지 않아도 어떤 타입인지 유추가 됩니다.
+  ```
+  let mySearch: SearchFunc;
+  mySearch = function(src, sub) {
+    let result = src.search(sub);
+    return result > -1;
+  }
+  ```
+  * Indexable 타입
+    - 
+
 
 
 

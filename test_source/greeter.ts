@@ -23,14 +23,17 @@ var user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user); 
 
-interface SquareConfig {
-  color?: string;
-  width?: number;
-  [propName: string] : any;
+interface SearchFunc {
+  (source: string, subString: string): boolean;
 }
 
-function createSquare(config: SquareConfig) {
-  alert(config.colour);
+let result : SearchFunc;
+
+result = function(aa, bb){
+  let _a = aa.search(aa);
+  return _a > -1;
 }
 
-let mySquare = createSquare({ colour: "red", width: 100, aa:20 } as SquareConfig );
+let source = 'a';
+let subString = 'b';
+result(source, subString);
