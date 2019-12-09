@@ -201,13 +201,13 @@ create(undefined); // Error
     ```
 
 ## TypeScript에서 다양한 변수 선언방법
-* 변수 선언시 var와 let의 차이.
+* 변수 선언시 var와 let의 차이.( 일반 javascript와 같음 )
   - 가장 큰 차이는 Block-scoped.
   - let은 선언하기 전에는 사용되어지면 안됨.
-* let와 const의 차이.
+* let와 const의 차이.( 일반 javascript와 같음 )
   - 수정하기 위한 변수 외에는 모두 const를 사용.
 * 배열 분해 할당
-  - 우선 가장 심플한 배열 분해 할당(first, second라는 변수로 배영을 분해하여 할당했다.)
+  - 우선 가장 심플한 배열 분해 할당(first, second라는 변수로 배열을 분해하여 할당했다.)
   ```
   let input = [1,2];
   // first = input[0]; 이런 형식과 같은 코드 이지만 아래 코드가 훨씬 편리함.
@@ -239,9 +239,15 @@ create(undefined); // Error
 
   // 정해진 Tuple타입의 요소를 벗어날 경우에는 에러가 발생된다.
   let [a, b, c, d] = tuple; // d 에러발생.
-  
+
   // '...'연산자를 이용한 Tuple타입 사용예제
   let [a, ...bc] = tuple; // bc: [string, boolean]
   let [a, b, c, ...d] = tuple; // d: [], the empty tuple
+
+  // 배열 요소 하나만 가져올 수 있다.
+  let [first] = tuple;
+
+  // 배열의 원하는 인덱스 위치의 값을 가져오고 싶을때.
+  let [,,bbb] = tuple;
   ```
 
