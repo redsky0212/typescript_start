@@ -199,3 +199,9 @@ create(undefined); // Error
     let someValue: any = "this is a string";
     let strLength: number = (<string>someValue).length;
     ```
+
+## TypeScript에서 다양한 변수 선언방법
+* 변수 선언시 var와 let의 차이.
+  - 가장 큰 차이는 Block-scoped.
+* let와 const의 차이.
+  - 수정하기 위한 변수 외에는 모두 const를 사용.
