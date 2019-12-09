@@ -93,6 +93,8 @@ let list: number[] = [1, 2, 3];
 let list: Array<number> = [1, 2, 3];
 ```
 * Tuple 타입 : 배열 요소의 각각의 타입을 지정할 수 있다.
+  - 타입이 정해진 각각의 배열 요소에 해당하는 속성을 사용할 수 있습니다.
+  - 해당 타입에 해당하는 요소가 아닌 경우 에러를 발생한다.
 ```
 // tuple 형식 선언
 let x: [string, number];
@@ -100,10 +102,8 @@ let x: [string, number];
 x = ["hello", 10]; // OK
 // 잘못된 초기화
 x = [10, "hello"]; // Error
-```
-  - 타입이 정해진 각각의 배열 요소에 해당하는 속성을 사용할 수 있습니다.
-  - 해당 타입에 해당하는 요소가 아닌 경우 에러를 발생한다.
-```
+
+// 배열요소의 속성 사용시
 console.log(x[0].substring(1)); // OK
 console.log(x[1].substring(1)); // Error, 'number' does not have 'substring'
 ```
