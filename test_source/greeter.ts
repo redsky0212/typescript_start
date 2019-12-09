@@ -22,3 +22,14 @@ function greeter(person : Person) {
 var user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user); 
+
+enum Color {Red, Green, Blue};
+let c: Color = Color.Green;
+
+console.log(c);
+
+enum test {a, b=3, c=2};
+let a: test = test.b;
+let c: string = test[2];
+console.log(a);
+console.log(c);

@@ -106,4 +106,19 @@ x = [10, "hello"]; // Error
 // 배열요소의 속성 사용시
 console.log(x[0].substring(1)); // OK
 console.log(x[1].substring(1)); // Error, 'number' does not have 'substring'
+
+// 정해진 요소가 아닌곳에 값을 바인딩하면 에러 발생.
+x[3] = 'world';
+console.log(x[5].toString());
+```
+
+* Enum 타입 : 열거형(숫자값 집합), 열거형의 시작은 0 부터 시작한다.
+  - 요소중 값을 수동으로 변경 가능 합니다.
+```
+enum Color {Red, Green, Blue};
+let c: Color = Color.Green;
+
+// Enum요소의 값 변경.
+enum test {a, b=3, c};
+let a: test = test.b;
 ```
