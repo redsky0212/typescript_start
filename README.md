@@ -282,6 +282,39 @@ function keepWholeObject(wholeObject: { a: string, b?: number }) {
 ```
 
 * Function 분해 할당
+```
+// 함수의 파라미터 부분에 적용.
+type C = { a: string, b?: number }
+function f({ a, b }: C): void {
+    // ...
+}
+```
+
+* Spread 연산자 '...'
+  - 구조분해와 반대
+  ```
+  let first = [1, 2];
+  let second = [3, 4];
+  let bothPlus = [0, ...first, ...second, 5];
+  ```
+  - 같은 요소가 있을경우 마지막 요소가 최종 값이 됨.
+  ```
+  // search.food값은 'rich'가 됨.
+  let defaults = { food: "spicy", price: "$$", ambiance: "noisy" };
+  let search = { ...defaults, food: "rich" };
+  ```
+  - 객체를 '...'를 이용하여 펼칠때는 class의 인스턴스 내부의 매서드는 소실된다.
+  ```
+  class C {
+    p = 12;
+    m() {
+    }
+  }
+  let c = new C();
+  let clone = { ...c };
+  clone.p; // ok
+  clone.m(); // error!
+  ```
 
 
 
