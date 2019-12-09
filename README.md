@@ -160,4 +160,34 @@ let unusable: void = undefined;
 unusable = null; // OK if `--strictNullChecks` is not given
 ```
 
-* Null and Undefined : 
+* Null and Undefined : TypeScript에서는 null, undefined는 각각 null, underfined라는 타입을 갖습니다.
+* Never : 절대 true가 반환되지 않는 경우의 타입입니다. 예를들어 항상 예외를 발생하는함수,
+```
+// Function returning never must have unreachable end point
+function error(message: string): never {
+    throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+    return error("Something failed");
+}
+``` 
+
+* Object : object에 type을 지정하는 형태. interface에서도 사용함.
+```
+declare function create(o: object | null): void;
+
+create({ prop: 0 }); // OK
+create(null); // OK
+
+create(42); // Error
+create("string"); // Error
+create(false); // Error
+create(undefined); // Error
+```
+
+* Type assertions : 형변환이 아님. 컴파일러에게 "나는 이런타입이다" 라고 명시해주는것.
+  - 명시해주는 방법은 두가지가 있다.
+    - 첫번째 : 변수 as 타입
+    - 두번째 : <타입>변수

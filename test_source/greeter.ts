@@ -39,3 +39,19 @@ console.log(s2);
 let list: any[] = [1, true, 'free'];
 list[1] = 100;
 console.log(list);
+
+
+
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+  return error("Something failed");
+}
+//fail();
+function infiniteLoop(): never {
+  while (true) {
+  }
+}

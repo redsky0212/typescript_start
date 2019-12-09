@@ -44,3 +44,15 @@ console.log(s2);
 var list = [1, true, 'free'];
 list[1] = 100;
 console.log(list);
+function error(message) {
+    throw new Error(message);
+}
+// Inferred return type is never
+function fail() {
+    return error("Something failed");
+}
+//fail();
+function infiniteLoop() {
+    while (true) {
+    }
+}
