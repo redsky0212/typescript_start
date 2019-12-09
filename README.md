@@ -339,5 +339,47 @@ function printLabel(labeledObj: LabeledValue) {
 let myObj = {size: 10, label: "Size 10 Object"};
 printLabel(myObj);
 ```
+* Optional Properties
+  - 값이 있어도 되고 없어도 되는 옵션값을 지정할때 '?'로 사용한다.
+  ```
+  interface SquareConfig {
+      color?: string;
+      width?: number;
+  }
+
+  function createSquare(config: SquareConfig): {color: string; area: number} {
+      let newSquare = {color: "white", area: 100};
+      if (config.color) {
+          newSquare.color = config.color;
+      }
+      if (config.width) {
+          newSquare.area = config.width * config.width;
+      }
+      return newSquare;
+  }
+
+  let mySquare = createSquare({color: "black"});
+  ```
+  * Readonly properties
+    - 처음 생성할때 값 할당하고 이후에는 값을 수정할 수 없게 처리하기 위하여 readonly를 **속성 이름 앞에** 적어 줍니다.
+    ```
+    interface Point {
+        readonly x: number;
+        readonly y: number;
+    }
+    // interface를 선언하고 값을 할당 하려고 하면 에러가 발생한다.
+    let p1: Point = { x: 10, y: 20 };
+    p1.x = 5; // error!
+    ```
+    - **ReadonlyArray<타입>**
+      - 미리지정된 배열을 새로운 변수에 할당할때 변경이 이루어지지 않게 지정하는 방법.
+      ```
+      let a: number[] = [1, 2, 3, 4];
+      let ro: ReadonlyArray<number> = a;
+      ro[0] = 12; // error!
+      ro.push(5); // error!
+      ro.length = 100; // error!
+      a = ro; // error!
+      ```
 
 
