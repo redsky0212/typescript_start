@@ -381,5 +381,9 @@ printLabel(myObj);
       ro.length = 100; // error!
       a = ro; // error!
       ```
+      - ReadonlyArray를 이용하여 수정할 수 없게 되었지만 새로운 변수에 Type assertion을 이용하여 새롭게 타입을 지정하여 사용할 수도 있다.
+      ```
+      let other = ro as number[];
+      ```
 
 
