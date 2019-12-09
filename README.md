@@ -212,5 +212,32 @@ create(undefined); // Error
   let input = [1,2];
   // first = input[0]; 이런 형식과 같은 코드 이지만 아래 코드가 훨씬 편리함.
   let [first, second] = input;
+
+  // 함수 파라미터로도 사용될 수 있습니다.
+  function f([first, second]  :[number, number]){
+    console.log(first);
+    console.log(second);
+  }
+  f([1,2]);
+
+  // '...'연산자를 이용하여 나머지 배열을 합쳐서 배열분해 변수 선언을 할 수도 있습니다.
+  let [first, ...rest] = [1, 2, 3, 4];
+  console.log(first); // outputs 1
+  console.log(rest); // outputs [ 2, 3, 4 ]
+
+  // 배열 요소 하나만 가져올 수 있다.
+  let [first] = [1,2,3,4];
+
+  // 배열의 원하는 인덱스 위치의 값을 가져오고 싶을때.
+  let [,,bbb,ccc] = [11,22,33,44];
+
+  // Tuple타입의 배열 요소
+  let tuple: [number, string, boolean] = [7, "hello", true];
+  let [a, b, c] = tuple; // a: number, b: string, c: boolean
+  // 정해진 Tuple타입의 요소를 벗어날 경우에는 에러가 발생된다.
+  let [a, b, c, d] = tuple; // d 에러발생.
+  // '...'연산자를 이용한 Tuple타입 사용예제
+  let [a, ...bc] = tuple; // bc: [string, boolean]
+  let [a, b, c, ...d] = tuple; // d: [], the empty tuple
   ```
 

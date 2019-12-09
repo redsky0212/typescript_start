@@ -56,4 +56,11 @@ function infiniteLoop(): never {
   }
 }
 
+function f([first, second]  :[number, number]){
+  console.log(first);
+  console.log(second);
+}
+f([1,2]);
 
+let [,,bbb,ccc] = [11,22,33,44];
+console.log(bbb);

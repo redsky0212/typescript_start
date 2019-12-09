@@ -56,6 +56,11 @@ function infiniteLoop() {
     while (true) {
     }
 }
-for (var i = 0; i < 10; i++) {
-    setTimeout(function () { console.log(i); }, 100 * i);
+function f(_a) {
+    var first = _a[0], second = _a[1];
+    console.log(first);
+    console.log(second);
 }
+f([1, 2]);
+var _a = [11, 22, 33, 44], bbb = _a[2], ccc = _a[3];
+console.log(bbb);
