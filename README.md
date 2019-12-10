@@ -376,7 +376,7 @@ printLabel(myObj);
   let p1: Point = { x: 10, y: 20 };
   p1.x = 5; // error!
   ```
-  - **ReadonlyArray<타입>**
+  - **ReadonlyArray<타입>** 배열에 readonly적용하기.
     - 미리지정된 배열을 새로운 변수에 할당할때 변경이 이루어지지 않게 지정하는 방법.
     ```
     let a: number[] = [1, 2, 3, 4];
@@ -407,7 +407,9 @@ printLabel(myObj);
 
   let mySquare = createSquare({ colour: "red", width: 100 });
   ```
-  - 하지만 color, width 외에 추가적인 속성이 더 있다고 가정하고 코드를 작성할때는 아래와 같이 할 수 있습니다.
+  - 하지만 color, width 외에 추가적인 속성이 더 있다고 가정하고 코드를 작성할때는 아래와 같이 두가지 방법으로 할 수 있습니다.
+    - interface에 추가적으로 아래와같이 propName을 설정하고 any타입을 적용하는 방법.
+    - 또다른 방법은 인자값 넘겨줄때 SquareConfig타입으로 형변환 해주는 방법.
   ```
   interface SquareConfig {
       color?: string;

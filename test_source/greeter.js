@@ -14,3 +14,10 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
+var o = {
+    a: "foo",
+    b: 12,
+    c: "bar"
+};
+var newName1 = o.a, newName2 = o.b;
+console.log(newName1);
