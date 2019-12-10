@@ -823,5 +823,9 @@ tom.move(34);
     return arg;
   }
   ```
-
+## Enum
+## Symbol
+## Namespace
+## Decorator
+## Mixin
 

@@ -23,7 +23,3 @@ var user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user); 
 
-function identity<T>(arg: number): number {
-  return arg;
-}
-console.log(identity(1));
