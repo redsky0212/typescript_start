@@ -495,22 +495,54 @@ printLabel(myObj);
   ```
 
 * Class 타입
+  - class에도 타입을 적용할 수 있다.
+    - class 클래스명 implements 타입명 {} 이런식으로 셋팅해준다.
   - Interface 구현
-  - 구현된 currentTime의 Date타입을 사용.
-  - setTime과 같이 메서드도 명시할 수 있음.
+    - class에 들어갈 속성, 메서드들을 타입을정하여 셋팅한다.
+    ```
+    interface ClockInterface {
+      currentTime: Date;
+      setTime(d: Date): void;
+    }
+
+    class Clock implements ClockInterface {
+      currentTime: Date = new Date();
+      setTime(d: Date) {
+          this.currentTime = d;
+      }
+      constructor(h: number, m: number) { }
+    }
+    ```
+  - class에 인터페이스 타입을 적용할때와 인스턴스에 인터페이스 타입을 적용할때의 구분이 명확해야한다.
   ```
-  interface ClockInterface {
-    currentTime: Date;
-    setTime(d: Date): void;
+  interface ClockConstructor {  // class의 인스턴스 인터페이스 
+    new (hour: number, minute: number);
+  }
+  interface ClockInterface {  // class의 인터페이스 (property, method등을 명시한다.)
+    tick();
   }
 
-  class Clock implements ClockInterface {
-    currentTime: Date = new Date();
-    setTime(d: Date) {
-        this.currentTime = d;
+  const Clock: ClockConstructor = class Clock implements ClockInterface {
+    constructor(h: number, m: number) {}
+    tick() {
+        console.log("beep beep");
     }
-    constructor(h: number, m: number) { }
   }
+  ```
+* Interface의 확장
+  - 클래스와 같이 interface도 확장하여 사용할 수 있다.
+  ```
+  interface Shape {
+    color: string;
+  }
+
+  interface Square extends Shape {
+    sideLength: number;
+  }
+
+  let square = {} as Square;
+  square.color = "blue";
+  square.sideLength = 10;
   ```
 
 
