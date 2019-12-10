@@ -813,5 +813,15 @@ tom.move(34);
   ```
   - 함수 내부에서 넘어온 매개변수의 메서드를 사용하고자 할때 number인지 string인지 등 정해지지 않았기 때문에 인자.length와 같은 메서
   드는 사용할 수 없습니다. 그래서 인자뒤에 T[] 또는 Array&lt;T&gt; 와 같이 넣어서 사용할 수 있습니다.
+  ```
+  function loggingIdentity<T>(arg: T[]): T[] {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+  }
+  function loggingIdentity<T>(arg: Array<T>): Array<T> {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+  }
+  ```
 
 
