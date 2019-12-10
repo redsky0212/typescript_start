@@ -14,18 +14,12 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
-var users = [
-    { name: 'kim', height: 176, favoriteLanguage: 'TypeScript' },
-    { name: 'lee', height: 42 }
-];
-var nameHeightMap = {
-    key: 111,
-    x: 222,
-    1: '333'
-};
-users.map(function (user) {
-    nameHeightMap[user.name] = user.height;
-});
-console.log(nameHeightMap); // { '안희종': 176, 'Stranger': 42 }
-var aa = ['aaa', 'bbb'];
-console.log(aa[1]);
+var Octopus = /** @class */ (function () {
+    function Octopus(name) {
+        this.name = name;
+        this.numberOfLegs = 8;
+    }
+    return Octopus;
+}());
+var dad = new Octopus("Man with the 8 strong legs");
+console.log(dad.name);

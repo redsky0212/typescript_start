@@ -594,6 +594,134 @@ printLabel(myObj);
   }
   ```
 
+## Class 
+* 일반적인 class에 타입사용법
+```
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+
+let greeter = new Greeter("world");
+```
+* class 상속
+```
+class Animal {
+    move(distanceInMeters: number = 0) {
+        console.log(`Animal moved ${distanceInMeters}m.`);
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        console.log('Woof! Woof!');
+    }
+}
+
+const dog = new Dog();
+dog.bark();
+dog.move(10);
+dog.bark();
+```
+* 좀 더 복잡한 상속 class
+```
+class Animal {
+    name: string;
+    constructor(theName: string) { this.name = theName; }
+    move(distanceInMeters: number = 0) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+
+class Snake extends Animal {
+    constructor(name: string) { super(name); }  // 생성자에서 상위 super를 꼭 호출해줘야한다.
+    move(distanceInMeters = 5) {
+        console.log("Slithering...");
+        super.move(distanceInMeters);
+    }
+}
+
+class Horse extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 45) {
+        console.log("Galloping...");
+        super.move(distanceInMeters);
+    }
+}
+
+let sam = new Snake("Sammy the Python");
+let tom: Animal = new Horse("Tommy the Palomino");
+
+sam.move();
+tom.move(34);
+```
+* Public, private, and protected modifiers
+  - 기본은 public
+  - private
+    - 선언한 class 외부에서는 접근하지 못함.
+    ```
+    class Animal {
+      private name: string;
+      constructor(theName: string) { this.name = theName; }
+    }
+
+    new Animal("Cat").name; // Error: 'name' is private;
+    ```
+    - class 내부 private가 있을때 class간 상속 호환이 없으면 접근하지 못함.
+  - protected
+    - 서로 상속된 class내에서는 서로 접근이 가능한 속성. 그 외에는 private와 같음.
+    ```
+    class Person {
+      protected name: string;
+      constructor(name: string) { this.name = name; }
+    }
+
+    class Employee extends Person {
+      private department: string;
+
+      constructor(name: string, department: string) {
+        super(name);
+        this.department = department;
+      }
+
+      public getElevatorPitch() {
+        return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+      }
+    }
+
+    let howard = new Employee("Howard", "Sales");
+    console.log(howard.getElevatorPitch());
+    console.log(howard.name); // error
+    ```
+    - class의 생성자가 protected이면 외부에서 new 클래스명 과 같이 인스턴스화 할 수 없다. 단 상속만 가능하다.
+* Readonly 사용
+  - class내부 속성에 readonly를 사용하여 값 초기화 후 추가셋팅을 할 수 없게 막을 수 있다.
+  ```
+  class Octopus {
+    readonly name: string;
+    readonly numberOfLegs: number = 8;
+    constructor (theName: string) {
+      this.name = theName;
+    }
+  }
+  let dad = new Octopus("Man with the 8 strong legs");
+  dad.name = "Man with the 3-piece suit"; // error! name is readonly.
+  ```
+  - 기존 name속성을 삭제하고 생성자 파라미터에서 바로 선언하고 셋팅을 한번에 할 수도 있습니다.
+    - 참고로 readonly말고도 public, protected 다 가능합니다.
+  ```
+  class Octopus {
+    readonly numberOfLegs: number = 8;
+    constructor(readonly name: string) {
+    }
+  }
+  ```
+
 
 
 
