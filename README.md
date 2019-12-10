@@ -543,6 +543,55 @@ printLabel(myObj);
   let square = {} as Square;
   square.color = "blue";
   square.sideLength = 10;
+
+  interface PenStroke {
+    penWidth: number;
+  }
+
+  // 이렇게 추가로 조합을 할 수도 있다.
+  interface Square extends Shape, PenStroke {
+    sideLength: number;
+  }
+  ```
+* Interface의 유연한 사용.
+  - interface를 유연하게 사용 할 수 있습니다.
+  ```
+  interface Counter {
+    (start: number): string;
+    interval: number;
+    reset(): void;
+  }
+
+  function getCounter(): Counter {
+    let counter = (function (start: number) { }) as Counter;
+    counter.interval = 123;
+    counter.reset = function () { };
+    return counter;
+  }
+
+  let c = getCounter();
+  c(10);
+  c.reset();
+  c.interval = 5.0;
+  ```
+* 상속된 class의 상위 멤버는 interface가 적용되지 않는다.
+  - 여러단계로 상속된 class구조에서 현재 class에만 interface의 타입을 적용하고자 할때 유용함.
+  ```
+  class Control {
+    private state: any;
+  }
+
+  interface SelectableControl extends Control {
+    select(): void;
+  }
+
+  class Button extends Control implements SelectableControl {
+    select() { }
+  }
+
+  class TextBox extends Control {
+    select() { }
+  }
   ```
 
 
