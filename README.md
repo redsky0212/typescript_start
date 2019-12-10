@@ -425,7 +425,7 @@ printLabel(myObj);
   let mySquare = createSquare({ colour: "red", width: 100 } as SquareConfig);
   ```
   - **주의** 
-    - 아래와 같이 전혀 다른 속성 하나만 사용하는데에 위와같은 초과속성체크를 사용해서는 안됨.
+    - 아래와 같이 전혀 다른 속성 하나만 사용하는데에 위와같은 초과속성체크를 사용해서는 안됨.(특별히 예외 사항일때만 사용하는게 좋음.)
   ```
   let squareOptions = { colour: "red" };
   let mySquare = createSquare(squareOptions);
