@@ -721,6 +721,34 @@ tom.move(34);
     }
   }
   ```
+* class에서 get, set사용
+  - class에서 속성을 무작위로 접근하면 위험성이 따르므로 속성 자체에는 직접 접근하지 못하게 하고 getter, setter를 통하여 접근하게 하면 
+  추후 추가적인 작업?(파라미터에 대한 에러처리 등) 도 처리할 수도있고 훨씬 안정적으로 코딩이 가능하다.
+  ```
+  const fullNameMaxLength = 10;
+
+  class Employee {
+      private _fullName: string;
+
+      get fullName(): string {
+          return this._fullName;
+      }
+
+      set fullName(newName: string) {
+          if (newName && newName.length > fullNameMaxLength) {
+              throw new Error("fullName has a max length of " + fullNameMaxLength);
+          }
+          
+          this._fullName = newName;
+      }
+  }
+
+  let employee = new Employee();
+  employee.fullName = "Bob Smith";
+  if (employee.fullName) {
+      console.log(employee.fullName);
+  }
+  ```
 
 
 
