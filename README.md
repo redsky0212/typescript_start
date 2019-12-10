@@ -179,6 +179,7 @@ function fail() {
 ``` 
 
 * Object : object에 type을 지정하는 형태. interface에서도 사용함.
+  - declare는 현재 파일이 아닌 다른..., 전역, 에 선언되어있다고 컴파일러에게 알려주는 때 사용.
 ```
 declare function create(o: object | null): void;
 
