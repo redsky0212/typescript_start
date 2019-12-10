@@ -121,12 +121,12 @@ let c: Color = Color.Green;
 
 // Enum요소의 값 변경.
 enum Test {a, b=3, c};
-let s: Test = Test.b;
+let s: Test = Test.b; // 열거형의 숫자값 가져오기
 console.log(s);
 
 // Enum요소에 바인딩된 숫자값으로 해당요소 이름을 알 수 있습니다.
 enum Test2 {name1, name2, name3};
-let s2: string = Test2[1];
+let s2: string = Test2[1];  // 열거형의 이름 가져오기
 console.log(s2);
 ```
 
