@@ -433,6 +433,7 @@ printLabel(myObj);
 * 함수 타입 지정
   - 함수의 매개변수, 반환값의 타입을 interface로 지정할 수 있다.
   ```
+  // 함수에 타입 지정 시 매개변수부분과 리턴값부분으로 나눠서 아래와 같이 타입을 지정할 수 있습니다.
   interface SearchFunc {
     (source: string, subString: string): boolean;
   }
