@@ -482,7 +482,9 @@ printLabel(myObj);
   users.map(user => {
     nameHeightMap[user.name] = user.height;
   });
-  console.log(nameHeightMap) // { '안희종': 176, 'Stranger': 42 }
+  console.log(nameHeightMap);
+  console.log(nameHeightMap['key']);  // 111
+  console.log(nameHeightMap[1]);      // '333'
 
   interface aaInter { // 배열에 사용시에는 거의 index:number로 정해지고 값의 타입은 여러가지 셋팅할 수 있다
     [index:number]: string;
