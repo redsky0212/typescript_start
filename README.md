@@ -473,6 +473,7 @@ printLabel(myObj);
   interface NameHeightMap { // 문자인덱싱을 적용하고 다른index에는 다른값타입을 적용할때는 string | number 이렇게 한다.
     [username:string] : string | number;
     [i:number]:string;
+    x:number;   // 이렇게 명시적으로 꼭 나와야하는 index'x'를 정하여 타입을 셋팅할 수도있다.
   }
   const nameHeightMap: NameHeightMap = {
     key:111,
