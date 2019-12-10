@@ -161,6 +161,10 @@ unusable = null; // OK if `--strictNullChecks` is not given
 ```
 
 * Null and Undefined : TypeScript에서는 null, undefined는 각각 null, underfined라는 타입을 갖습니다.
+```
+let u: undefined = undefined;
+let n: null = null;
+```
 * Never : 절대 true가 반환되지 않는 경우의 타입입니다. 예를들어 항상 예외를 발생하는함수,
 ```
 // Function returning never must have unreachable end point

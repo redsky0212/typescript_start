@@ -14,6 +14,3 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
-var myArray;
-myArray = ["Bob", "Fred"];
-var myStr = myArray[0];
