@@ -14,10 +14,18 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
-var o = {
-    a: "foo",
-    b: 12,
-    c: "bar"
+var users = [
+    { name: 'kim', height: 176, favoriteLanguage: 'TypeScript' },
+    { name: 'lee', height: 42 }
+];
+var nameHeightMap = {
+    key: 111,
+    x: 222,
+    1: '333'
 };
-var newName1 = o.a, newName2 = o.b;
-console.log(newName1);
+users.map(function (user) {
+    nameHeightMap[user.name] = user.height;
+});
+console.log(nameHeightMap); // { '안희종': 176, 'Stranger': 42 }
+var aa = ['aaa', 'bbb'];
+console.log(aa[1]);

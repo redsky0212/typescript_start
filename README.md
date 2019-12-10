@@ -460,9 +460,36 @@ printLabel(myObj);
     return result > -1;
   }
   ```
-* Indexable 타입(아직 이해 안됨)
+* Indexable 타입(색인 가능 타입 정의)
+  - interface를 이용하여 값 인덱스를 숫자 또는 문자로 결과타입에 맞는 값을 구할 수 있는 것.
   - **number, string** 두가지 타입만 가능.
   - aaa[0] : 숫자형인덱싱, aaa['test'] : 문자형 인덱싱.
+  - 상속관계일때 숫자인덱싱은 문자 인텍싱의 하위여야한다.
+  ```
+  const users:any  = [
+    { name: 'kim', height: 176, favoriteLanguage: 'TypeScript' },
+    { name: 'lee', height: 42 }
+  ];
+  interface NameHeightMap { // 문자인덱싱을 적용하고 다른index에는 다른값타입을 적용할때는 string | number 이렇게 한다.
+    [username:string] : string | number;
+    [i:number]:string;
+  }
+  const nameHeightMap: NameHeightMap = {
+    key:111,
+    x:222,
+    1:'333'
+  };
+  users.map(user => {
+    nameHeightMap[user.name] = user.height;
+  });
+  console.log(nameHeightMap) // { '안희종': 176, 'Stranger': 42 }
+
+  interface aaInter { // 배열에 사용시에는 거의 index:number로 정해지고 값의 타입은 여러가지 셋팅할 수 있다
+    [index:number]: string;
+  }
+  let aa : aaInter = ['aaa', 'bbb'];
+  console.log(aa[1]);
+  ```
 
 * Class 타입
   - Interface 구현
