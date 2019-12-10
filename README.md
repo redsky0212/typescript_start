@@ -749,8 +749,69 @@ tom.move(34);
       console.log(employee.fullName);
   }
   ```
+* Static 속성
+  - class에서 인스턴스를 생성하지 않고도 class의 속성에 바로 접근 가능한 속성.
+  - 속성앞에 static을 붙인다.
 
+* 추상클래스 (Abstract)
+  - 인스턴스화 할 수 없다.
+  - abstract클래스의 메서드 또한 추상화 할 수도 있고 안할 수도 있다. 추상메서드 지정시 로직을 담지 않고 선언하고 타입만 지정한다. 구현은 하위 파생된 class에서 한다.
+  ```
+  abstract class Department {
+      constructor(public name: string) {
+      }
 
+      printName(): void {
+          console.log("Department name: " + this.name);
+      }
 
+      abstract printMeeting(): void; // must be implemented in derived classes
+  }
+
+  class AccountingDepartment extends Department {
+
+      constructor() {
+          super("Accounting and Auditing"); // constructors in derived classes must call super()
+      }
+
+      printMeeting(): void {
+          console.log("The Accounting Department meets each Monday at 10am.");
+      }
+
+      generateReports(): void {
+          console.log("Generating accounting reports...");
+      }
+  }
+
+  let department: Department; // ok to create a reference to an abstract type
+  department = new Department(); // error: cannot create an instance of an abstract class
+  department = new AccountingDepartment(); // ok to create and assign a non-abstract subclass
+  department.printName();
+  department.printMeeting();
+  department.generateReports(); // error: method doesn't exist on declared abstract type
+  ```
+## Function
+* 일반적인 javascript, TypeScript공신문서 Functions : (https://www.typescriptlang.org/docs/handbook/functions.html)
+
+## Generics
+* 일반적인 타입캡쳐
+  - 입력한 인수 타입과 매개변수와 리턴값을 맞출때 유용함.
+  - 매개변수를 any타입으로 하면 리턴값은 넘어온 매개변수 타입과 맞출 수 없다. 타입이 동적이기 때문.
+  - 사용예
+  ```
+  function identity<T>(arg: T): T {
+    return arg;
+  }
+  ```
+  - identity함수를 사용할때 string으로 명시해서 사용할 수 있습니다.
+  ```
+  let output = identity<string>("myString");
+  ```
+  - 아니면 넘겨진 인자가 어떤 타입이냐에 따라 그 타입을 자동으로 따라가게끔 되게 처리합니다.
+  ```
+  let output = identity("myString");
+  ```
+  - 함수 내부에서 넘어온 매개변수의 메서드를 사용하고자 할때 number인지 string인지 등 정해지지 않았기 때문에 인자.length와 같은 메서
+  드는 사용할 수 없습니다. 그래서 인자뒤에 T[] 또는 Array<T> 와 같이 넣어서 사용할 수 있습니다.
 
 

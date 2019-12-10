@@ -14,12 +14,7 @@ function greeter(person) {
 }
 var user = new Student("Jane", "M.", "User");
 document.body.innerHTML = greeter(user);
-var Octopus = /** @class */ (function () {
-    function Octopus(name) {
-        this.name = name;
-        this.numberOfLegs = 8;
-    }
-    return Octopus;
-}());
-var dad = new Octopus("Man with the 8 strong legs");
-console.log(dad.name);
+function identity(arg) {
+    return arg;
+}
+console.log(identity(1));
